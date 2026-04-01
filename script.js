@@ -44,3 +44,13 @@ function getRandomPassage() {
     const random = Math.floor(Math.random() * list.length);
     return list[random].text;
 }
+
+function renderPassage(text) {
+    passageEl.innerHTML = "";
+
+    text.split("").forEach(char => {
+        const span = document.createElement("span");
+        span.innerText = char;
+        passageEl.appendChild(span);
+    });
+}
