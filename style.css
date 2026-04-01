@@ -78,3 +78,62 @@ button {
 button:active {
   transform: scale(0.97);
 }
+
+@media (max-width: 768px) {
+
+  .header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .header-bottom {
+    flex-direction: column;
+  }
+
+  .stats {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .settings {
+    width: 100%;
+  }
+
+  .difficulty button,
+  .mode button {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .stat h2 {
+    font-size: 20px;
+  }
+
+  .passage {
+    font-size: 16px;
+  }
+
+  textarea {
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  h1 {
+    font-size: 18px;
+  }
+
+  .stat p {
+    font-size: 12px;
+  }
+
+  .stat h2 {
+    font-size: 16px;
+  }
+
+  .personal-best {
+    font-size: 12px;
+  }
+}
