@@ -189,3 +189,18 @@ function handlePersonalBest(wpm) {
 function triggerConfetti() {
   confetti();
 }
+
+startBtn.addEventListener("click", startTest);
+
+restartBtn.addEventListener("click", () => {
+  resultsEl.classList.add("hidden");
+  startTest();
+});
+
+timedModeBtn.addEventListener("click", () => {
+  mode = "timed";
+});
+
+passageModeBtn.addEventListener("click", () => {
+  mode = "passage";
+});
