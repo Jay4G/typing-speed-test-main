@@ -164,3 +164,24 @@ function endTest() {
 
   resultsEl.classList.remove("hidden");
 }
+
+function handlePersonalBest(wpm) {
+  const saved = localStorage.getItem("pBest");
+
+  if (!saved) {
+    localStorage.setItem("pBest", wpm);
+    pbEl.textContent = wpm;
+    alert("Baseline Established!");
+    return;
+  }
+
+  if (wpm > saved) {
+    localStorage.setItem("pBest", wpm);
+    pbEl.textContent = wpm;
+
+    alert("High Score Smashed!");
+    triggerConfetti();
+  } else {
+    pbEl.textContent = saved;
+  }
+}
