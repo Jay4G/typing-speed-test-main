@@ -38,3 +38,9 @@ fetch("data.json")
     .then(data => {
         passages = data;
     });
+
+function getRandomPassage() {
+    const list = passages[difficulty];
+    const random = Math.floor(Math.random() * list.length);
+    return list[random].text;
+}
