@@ -85,3 +85,39 @@ function startTimer() {
     }
   }, 1000);
 }
+
+input.addEventListener("input", () => {
+  if (!isRunning) startTest();
+
+  const typed = input.value;
+  const spans = passageEl.querySelectorAll("span");
+
+  correctChars = 0;
+  wrongChars = 0;
+
+  spans.forEach((span, index) => {
+    const char = typed[index];
+
+    if (char == null) {
+      span.classList.remove("correct", "wrong");
+    } 
+    else if (char === span.innerText) {
+      span.classList.add("correct");
+      span.classList.remove("wrong");
+      correctChars++;
+    } 
+    else {
+      span.classList.add("wrong");
+      span.classList.remove("correct");
+      wrongChars++;
+    }
+  });
+
+  totalTyped = typed.length;
+
+  updateStats();
+
+  if (typed === currentPassage) {
+    endTest();
+  }
+});
