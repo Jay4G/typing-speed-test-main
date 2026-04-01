@@ -71,3 +71,17 @@ function startTest() {
 
   startTimer();
 }
+
+function startTimer() {
+  clearInterval(timer);
+
+  timer = setInterval(() => {
+    time++;
+
+    timeEl.textContent = time;
+
+    if (mode === "timed" && time >= 60) {
+      endTest();
+    }
+  }, 1000);
+}
