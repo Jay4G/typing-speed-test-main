@@ -8,50 +8,135 @@
   
   <title>Frontend Mentor | Typing Speed Test</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="style.css">
+
   <style>
     .attribution { font-size: 0.6875rem; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
+
 </head>
+
 <body>
 
-  Personal best: <!-- PB --> WPM
+  <div class="app">
 
-  WPM: <!-- WPM -->
-  Accuracy: <!-- Accuracy -->
-  Time: <!-- Time -->
+    <!-- HEADER -->
+    <header class="header">
 
-  Difficulty:
-  Easy
-  Medium
-  Hard
+      <!-- TITLE + PERSONAL BEST -->
+       <div class="top-header">
 
-  Mode:
-  Timed (60s)
-  Passage
+        <h1 class="app-title">Typing Speed Test</h1>
+        <p>Type as fast as you can in 60 Sceonds</p>
 
-  <!-- Passage -->
+        <div class="personal-best">
+          Personal Best:
+          <span id="p-best">0</span>WPM
+        </div>
 
-  Start Typing Test
-  Or click the text and start typing
+      </div>
+     
+      <!-- STATS + DIFFICULTY -->
+       <div class="buttom-header">
 
-  <!-- Test Complete Start -->
+        <!-- STATS -->
+      <div class="stats">
 
-  Test Complete!
-  Solid run. Keep pushing to beat your high score.
+        <div class="stat">
+          <p>WPM</p>
+          <h2 id="wpm">0</h2>
+        </div>
 
-  WPM: <!-- WPM -->
-  Accuracy: <!-- Accuracy -->
-  Characters: <!-- Correct/Incorrect -->
+        <div class="stat">
+          <p>Accuracy</p>
+          <h2 id="accuracy">0%</h2>
+        </div>
 
-  Go Again
-  
-  <!-- Test Complete End -->
+        <div class="stat">
+          <p>Time</p>
+          <h2 id="time">0</h2>
+        </div>
+
+      </div>
+
+      <!-- CONTROLS -->
+
+      <div class="controls">
+        <!-- Difficulty Control -->
+         <p>Difficulty:</p>
+         <div id="difficulty">
+          <button data-difficulty="easy">Easy</button>
+          <button data-difficulty="medium">Medium</button>
+          <button data-difficulty="hard">Hard</button>
+         </div>
+
+        <!-- Mode Toggle -->
+         <div class="mode">
+          <p>Mode:</p>
+          <button id="modeBtn">Mode: Timed (60s)</button>
+          <button id="passageMode">Passage</button>
+         </div>
+          
+      </div>
+        
+      </div>
+
+    </header>
+
+    
+
+    <!-- PASSAGE -->
+      <main class="passage-section">\
+
+        <div id="passage" class="passage">
+         Click "Start Typing Test" to begin... 
+        </div>
+
+      </main>
+
+    <!-- INPUT AREA -->
+     <section class="input area">
+
+      <textarea
+       id="input" 
+       placeholder="Or click the text and start typing..." 
+       disabled
+      ></textarea>
+
+      <button id="startBtn">Start Typing Test</button>
+
+     </section>
+
+    <!-- TEST COMPLETE (Start)  -->
+    <section class="results hidden" id="results">
+
+      <h2>Test Complete!</h2>
+
+      <p class="message">Solid run. Keep pushing to beat your high score.</p>
+
+      <div class="result-stats">
+        <p>WPM: <span id="finalWpm">0</span></p>
+        <p>Accuracy: <span id="finalAccuracy">0%</span></p>
+        <p>
+          Characters: 
+          <span id="correctChars">0</span> /
+          <span id="wrongChars">0</span>
+        </p>
+
+      </div>
+      
+      <button id="restartBtn">Go Again!</button>
+
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
 
   <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">Joel Oluwabukola</a>.
   </footer>
 </body>
 </html>
