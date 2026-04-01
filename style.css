@@ -150,6 +150,9 @@ button:active {
 /* INPUT */
 .input-area {
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 textarea {
@@ -173,6 +176,7 @@ textarea:focus {
 #startBtn {
   margin-top: 10px;
   width: 50%;
+  max-width: 260px;
   background: var(--accent);
   border: none;
 }
