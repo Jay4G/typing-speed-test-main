@@ -33,3 +33,8 @@ const wrongCharsEl = document.getElementById("wrongChars");
 const timedModeBtn = document.getElementById("timedMode");
 const passageModeBtn = document.getElementById("passageMode");
 
+fetch("data.json")
+    .then(res => res.json())
+    .then(data => {
+        passages = data;
+    });
