@@ -1,93 +1,227 @@
+/* RESET */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: Sora, sans-serif;
+/* ROOT COLORS */
+:root {
+  --bg: hsl(222, 47%, 11%);
+  --card: hsl(221, 39%, 11%);
+  --text: hsl(240, 1%, 59%);
+  --muted: hsl(240, 1%, 59%);
+  --accent: hsl(0, 0%, 7%);
+  --green-500: hsl(140, 63%, 57%);
+  --red-500: hsl(354, 63%, 57%);
+  --blue-600: hsl(214, 100%, 55%);
+  --blue-400: hsl(210, 100%, 65%);
 }
 
+/* BODY */
+body {
+  font-family: "Sora", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+/* APP CONTAINER */
 .app {
   width: 100%;
   max-width: 1000px;
-  margin: 0 auto;
-  padding: 16px;
+  padding: 20px;
 }
 
+/* HEADER */
 .header {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 15px;
 }
 
+/* TOP ROW */
 .top-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+.app-title h1 {
+  font-size: 24px;
+}
+
+.personal-best {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* BOTTOM ROW */
 .bottom-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
   gap: 20px;
 }
 
+/* STATS */
 .stats {
   display: flex;
-  gap: 20px;
-}
-
-.settings {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  gap: 25px;
 }
 
 .stat {
   text-align: center;
 }
 
+.stat p {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.stat h2 {
+  font-size: 24px;
+}
+
+/* SETTINGS */
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.controls p {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* BUTTONS */
+button {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid #1f2937;
+  padding: 8px 12px;
+  margin-right: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #1f2937;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* PASSAGE */
 .passage-section {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .passage {
-  font-size: 18px;
-  line-height: 1.6;
+  background: var(--card);
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  line-height: 1.8;
+  min-height: 120px;
   word-wrap: break-word;
+}
+
+/* TYPING STATES */
+.correct {
+  color: var(--green);
+}
+
+.wrong {
+  color: var(--red);
+  text-decoration: underline;
+}
+
+.current {
+  background: rgba(59, 130, 246, 0.25);
+  border-left: 2px solid var(--accent);
+}
+
+/* INPUT */
+.input-area {
+  margin-top: 20px;
 }
 
 textarea {
   width: 100%;
   height: 120px;
-  margin-top: 12px;
-  padding: 10px;
+  margin-top: 10px;
+  padding: 12px;
   font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #1f2937;
+  background: var(--card);
+  color: var(--text);
+  resize: none;
 }
 
+textarea:focus {
+  outline: 1px solid var(--accent);
+}
 
-button {
-  padding: 10px 12px;
+/* START BUTTON */
+#startBtn {
+  margin-top: 10px;
+  width: 50%;
+  background: var(--accent);
   border: none;
-  cursor: pointer;
-  font-size: 14px;
-  border-radius: 6px;
 }
 
-button:active {
-  transform: scale(0.97);
+#startBtn:hover {
+  background: #2563eb;
 }
 
+/* RESULTS */
+.results {
+  margin-top: 40px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.results h2 {
+  margin-bottom: 10px;
+}
+
+.results p {
+  margin: 6px 0;
+  color: var(--muted);
+}
+
+.result-stats {
+  margin: 15px 0;
+  color: var(--muted);
+}
+
+#restartBtn {
+  margin-top: 10px;
+  background: var(--accent);
+  border: none;
+}
+
+/* HIDDEN */
+.hidden {
+  display: none;
+}
+
+/* 📱 TABLET */
 @media (max-width: 768px) {
 
-  .header-top {
+  .top-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
   }
 
-  .header-bottom {
+  .bottom-header {
     flex-direction: column;
   }
 
@@ -96,7 +230,7 @@ button:active {
     width: 100%;
   }
 
-  .settings {
+  .controls {
     width: 100%;
   }
 
@@ -106,8 +240,25 @@ button:active {
     margin-top: 5px;
   }
 
+  .passage {
+    font-size: 18px;
+  }
+
+}
+
+/* 📱 MOBILE */
+@media (max-width: 480px) {
+
+  .app {
+    padding: 15px;
+  }
+
+  .app-title h1 {
+    font-size: 18px;
+  }
+
   .stat h2 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .passage {
@@ -117,23 +268,10 @@ button:active {
   textarea {
     height: 140px;
   }
-}
 
-@media (max-width: 480px) {
-
-  h1 {
-    font-size: 18px;
+  button {
+    width: 100%;
+    margin-top: 6px;
   }
 
-  .stat p {
-    font-size: 12px;
-  }
-
-  .stat h2 {
-    font-size: 16px;
-  }
-
-  .personal-best {
-    font-size: 12px;
-  }
 }

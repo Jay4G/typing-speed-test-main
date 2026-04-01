@@ -32,7 +32,7 @@ const finalAccuracy = document.getElementById("finalAccuracy");
 const correctCharsEl = document.getElementById("correctChars");
 const wrongCharsEl = document.getElementById("wrongChars");
 
-const timedModeBtn = document.getElementById("timedMode");
+const timedModeBtn = document.getElementById("modeBtn");
 const passageModeBtn = document.getElementById("passageMode");
 
 fetch("data.json")
@@ -40,6 +40,16 @@ fetch("data.json")
     .then(data => {
         passages = data;
     });
+
+document.querySelectorAll("#difficulty button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("#difficulty button")
+      .forEach(b => b.classList.remove("active"));
+
+    btn.classList.add("active");
+    difficulty = btn.dataset.difficulty;
+  });
+});
 
 function getRandomPassage() {
     const list = passages[difficulty];
