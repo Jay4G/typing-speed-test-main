@@ -99,11 +99,19 @@ input.addEventListener("input", () => {
   const typed = input.value;
   const spans = passageEl.querySelectorAll("span");
 
+  currentIndex = typed.length - 1;
+
   correctChars = 0;
   wrongChars = 0;
 
   spans.forEach((span, index) => {
     const char = typed[index];
+
+    span.classList.remove("current");
+
+    if (index === typed.length) {
+      span.classList.add("current");
+    }
 
     if (char == null) {
       span.classList.remove("correct", "wrong");
