@@ -46,13 +46,18 @@ function getRandomPassage() {
 }
 
 function renderPassage(text) {
-    passageEl.innerHTML = "";
+  passageEl.innerHTML = "";
 
-    text.split("").forEach(char => {
-        const span = document.createElement("span");
-        span.innerText = char;
-        passageEl.appendChild(span);
-    });
+  text.split("").forEach((char, index) => {
+    const span = document.createElement("span");
+    span.innerText = char;
+
+    if (index === 0) {
+      span.classList.add("current");
+    }
+
+    passageEl.appendChild(span);
+  });
 }
 
 function startTest() {
