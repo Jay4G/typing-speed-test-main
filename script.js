@@ -146,3 +146,21 @@ function resetState() {
 
   clearInterval(timer);
 }
+
+function endTest() {
+  isRunning = false;
+  clearInterval(timer);
+
+  input.disabled = true;
+
+  const finalWpmValue = parseInt(wpmEl.textContent);
+
+  finalWpm.textContent = finalWpmValue;
+  finalAccuracy.textContent = accuracyEl.textContent;
+  correctCharsEl.textContent = correctChars;
+  wrongCharsEl.textContent = wrongChars;
+
+  handlePersonalBest(finalWpmValue);
+
+  resultsEl.classList.remove("hidden");
+}
