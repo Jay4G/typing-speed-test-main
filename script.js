@@ -121,3 +121,15 @@ input.addEventListener("input", () => {
     endTest();
   }
 });
+
+function updateStats() {
+  const minutes = time / 60 || 1;
+
+  const wpm = Math.round((correctChars / 5) / minutes);
+  const accuracy = totalTyped === 0
+    ? 0
+    : Math.round((correctChars / totalTyped) * 100);
+
+  wpmEl.textContent = wpm;
+  accuracyEl.textContent = accuracy + "%";
+}
