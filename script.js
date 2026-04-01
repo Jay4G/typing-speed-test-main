@@ -185,3 +185,7 @@ function handlePersonalBest(wpm) {
     pbEl.textContent = saved;
   }
 }
+
+function triggerConfetti() {
+  confetti();
+}
