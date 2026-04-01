@@ -54,3 +54,20 @@ function renderPassage(text) {
         passageEl.appendChild(span);
     });
 }
+
+function startTest() {
+  if (isRunning) return;
+
+  currentPassage = getRandomPassage();
+  renderPassage(currentPassage);
+
+  resetState();
+
+  input.disabled = false;
+  input.value = "";
+  input.focus();
+
+  isRunning = true;
+
+  startTimer();
+}
