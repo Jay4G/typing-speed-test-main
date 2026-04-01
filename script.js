@@ -79,6 +79,11 @@ function startTest() {
   startTimer();
 }
 
+passageEl.addEventListener("click", () => {
+  input.focus();
+  startTest();
+});
+
 function startTimer() {
   clearInterval(timer);
 
@@ -135,6 +140,10 @@ input.addEventListener("input", () => {
   if (typed === currentPassage) {
     endTest();
   }
+});
+
+input.addEventListener("paste", (e) => {
+  e.preventDefault();
 });
 
 function updateStats() {
