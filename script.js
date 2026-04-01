@@ -133,3 +133,16 @@ function updateStats() {
   wpmEl.textContent = wpm;
   accuracyEl.textContent = accuracy + "%";
 }
+
+function resetState() {
+  time = 0;
+  correctChars = 0;
+  wrongChars = 0;
+  totalTyped = 0;
+
+  timeEl.textContent = 0;
+  wpmEl.textContent = 0;
+  accuracyEl.textContent = "0%";
+
+  clearInterval(timer);
+}
