@@ -12,6 +12,8 @@ let correctChars = 0;
 let wrongChars = 0;
 let totalTyped = 0;
 
+let currentIndex = 0;
+
 const input = document.getElementById("input");
 const passageEl = document.getElementById("passage");
 
